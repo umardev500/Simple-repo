@@ -1,7 +1,12 @@
 import { Visitor } from "@/components/molecules";
+import { type UserData } from "@/types";
 import { useState } from "react";
 
-export const VisitorList = () => {
+interface Props {
+  userData?: UserData;
+}
+
+export const VisitorList = ({ userData }: Props) => {
   const [data] = useState<string[]>([
     "/assets/images/avatar.png",
     "/assets/images/avatar-1.png",

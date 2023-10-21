@@ -1,7 +1,12 @@
 import { Section } from "@/components/molecules";
 import { Footer, Header, RepoList, Sidebar } from "@/components/organisms";
+import { useGetFollower, useGetRepo, useGetUser } from "@/hooks";
 
 export default function Home() {
+  useGetUser();
+  useGetFollower();
+  useGetRepo();
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <section>

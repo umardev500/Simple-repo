@@ -1,3 +1,4 @@
+import { AppProvider } from "@/context/AppContext";
 import "@/styles/app.scss";
 import type { AppProps } from "next/app";
 
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <AppProvider>
+        <Component {...pageProps} />
+      </AppProvider>
     </>
   );
 }

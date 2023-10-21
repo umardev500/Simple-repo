@@ -1,6 +1,11 @@
+import { type UserData } from "@/types";
 import Image from "next/image";
 
-export const Profile = () => {
+interface Props {
+  userData?: UserData;
+}
+
+export const Profile = ({ userData }: Props) => {
   return (
     <div className="flex lg:flex-col items-center">
       <Image
@@ -17,9 +22,11 @@ export const Profile = () => {
         height={80}
         alt="Profile photo"
       />
-      <div className="ml-4 lg:ml-0">
-        <h2 className="mt-2 text-2xl text-gray-800 font-bold">Pixel8labs</h2>
-        <div className="text-gray-500 -mt-0.5">@pixel8Labs</div>
+      <div className="ml-4 lg:ml-0 lg:text-center">
+        <h2 className="mt-2 text-2xl text-gray-800 font-bold">
+          {userData?.name}
+        </h2>
+        <div className="text-gray-500 -mt-0.5">@{userData?.login}</div>
       </div>
     </div>
   );
