@@ -26,7 +26,7 @@ export const RepoListing = ({
           {!isPrivate ? (
             <BadgeSm
               text="public"
-              className="bg-indigo-50 text-indigo-600 font-medium"
+              className="bg-indigo-50 text-badge-text-public font-medium"
             />
           ) : (
             <BadgeSm

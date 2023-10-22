@@ -13,7 +13,8 @@ module.exports = {
       colors: {
         'custom-pink': '#DD2590',
         'gray-25': '#FCFCFD',
-        'private': '#F2F4F7'
+        'private': '#F2F4F7',
+        'badge-text-public': '#5925DC'
       }
     },
   },

@@ -6,18 +6,20 @@ interface Props {
 }
 
 export const Profile = ({ userData }: Props) => {
+  const avatarUrl = userData?.avatar_url;
+
   return (
     <div className="flex lg:flex-col items-center">
       <Image
-        className="hidden lg:block"
-        src={"/assets/images/profile.png"}
+        className="hidden rounded-full lg:block"
+        src={`${avatarUrl ?? "/assets/images/profile.png"}`}
         width={160}
         height={160}
         alt="Profile photo"
       />
       <Image
-        className="lg:hidden"
-        src={"/assets/images/profile.png"}
+        className="lg:hidden rounded-full"
+        src={`${avatarUrl ?? "/assets/images/profile.png"}`}
         width={80}
         height={80}
         alt="Profile photo"

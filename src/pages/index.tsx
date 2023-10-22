@@ -19,7 +19,7 @@ export default function Home() {
             </div>
 
             {/* Repositories section */}
-            <div className="lg:p-6 col-span-3 bg-white lg:border rounded-lg">
+            <div className="lg:p-6 col-span-4 lg:col-span-3 bg-white lg:border rounded-lg">
               <Section />
               <RepoList />
             </div>

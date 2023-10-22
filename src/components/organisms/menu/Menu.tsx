@@ -1,15 +1,20 @@
 import { Bars } from "@/components/atoms";
+import { AppContext, type AppContextType } from "@/context/AppContext";
 import { useLogout } from "@/hooks/logout";
 import { Menu as HeadlessMenu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 
 const MenuBtn = () => {
+  const ctx = useContext(AppContext) as AppContextType;
+  const avatarUrl = ctx.userData?.avatar_url;
+
   return (
     <div className="flex hover:cursor-pointer hover:bg-gray-50 items-center px-4 py-2 gap-4 border rounded-full">
       <Image
-        src={"/assets/images/avatar.png"}
+        className="rounded-full"
+        src={`${avatarUrl ?? "/assets/images/avatar.png"}`}
         width={40}
         height={40}
         alt="Avatar"
@@ -22,6 +27,9 @@ const MenuBtn = () => {
 };
 
 export const Menu = () => {
+  const ctx = useContext(AppContext) as AppContextType;
+  const avatarUrl = ctx.userData?.avatar_url;
+
   const logout = useLogout();
   const handleLogout = () => {
     logout().catch((err) => {
@@ -56,7 +64,7 @@ export const Menu = () => {
               <div className="flex gap-3 items-center px-4">
                 <div className="w-10 h-10">
                   <Image
-                    src={"/assets/images/avatar.png"}
+                    src={`${avatarUrl ?? "/assets/images/avatar.png"}`}
                     width={40}
                     height={40}
                     alt="Avatar"
