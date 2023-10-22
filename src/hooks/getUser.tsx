@@ -8,7 +8,7 @@ export const useGetUser = () => {
 
   useEffect(() => {
     const config = getConfig();
-    const url = `${process.env.url}/user`;
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/user`;
     fetch(url, config)
       .then(async (res) => {
         return await res.json();

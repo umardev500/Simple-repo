@@ -6,7 +6,9 @@ export const useGetToken = () => {
   const params = useSearchParams();
 
   useEffect(() => {
-    const url = `${process.env.url}/callback?code${params.get("code")}`;
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/callback?code=${params.get(
+      "code",
+    )}`;
     if (params.get("code") != null) {
       fetch(url)
         .then(async (res) => {

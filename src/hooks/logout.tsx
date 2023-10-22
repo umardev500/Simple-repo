@@ -1,7 +1,7 @@
 export const useLogout = () => {
   const doLogout = async () => {
     const token = localStorage.getItem("token");
-    const url = `${process.env.url}/logout`;
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/logout`;
 
     try {
       await fetch(url, {
