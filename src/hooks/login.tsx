@@ -9,9 +9,8 @@ export const useLogin = () => {
       });
       const jsonData = await response.json();
       window.location.href = jsonData.data;
-    } catch (error) {
-      console.error(error);
-      throw error;
+    } catch (error: any) {
+      throw new Error("Login error" + error.message);
     }
   };
 

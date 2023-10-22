@@ -17,7 +17,7 @@ export const useGetFollower = () => {
           ctx.setFollower(data);
         })
         .catch((err) => {
-          console.log(err);
+          throw err;
         });
     }
   }, [ctx.userData]);

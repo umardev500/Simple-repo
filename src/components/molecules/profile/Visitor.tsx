@@ -11,7 +11,7 @@ export const Visitor = ({ item }: Props) => {
     <Link href={item?.html_url ?? "https://github.com"}>
       <Image
         className="rounded-full"
-        src={item?.avatar_url ?? "/"}
+        src={item?.avatar_url ?? "/assets/images/avatar.png"}
         width={56}
         height={56}
         alt="Avatar"

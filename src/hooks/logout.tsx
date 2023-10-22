@@ -12,9 +12,8 @@ export const useLogout = () => {
       });
       localStorage.removeItem("token");
       window.location.href = "/";
-    } catch (error) {
-      console.error(error);
-      throw error;
+    } catch (error: any) {
+      throw new Error("Logout error" + error.message);
     }
   };
 

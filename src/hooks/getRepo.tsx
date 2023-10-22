@@ -17,7 +17,7 @@ export const useGetRepo = () => {
         ctx.setRepos(dataOfUser);
       })
       .catch((err) => {
-        console.log(err);
+        throw err;
       });
   }, []);
 };

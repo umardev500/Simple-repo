@@ -22,7 +22,7 @@ export const useGetToken = () => {
           window.location.href = "/";
         })
         .catch((err) => {
-          console.log(err);
+          throw err;
         });
     }
   }, [params]);

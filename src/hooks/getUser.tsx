@@ -14,11 +14,10 @@ export const useGetUser = () => {
       })
       .then((data) => {
         const dataOfUser = data.data as UserData;
-        console.log(dataOfUser);
         ctx.setUserdata(dataOfUser);
       })
       .catch((err) => {
-        console.log(err);
+        throw err;
       });
   }, []);
 };
