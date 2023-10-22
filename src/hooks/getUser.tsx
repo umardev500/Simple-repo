@@ -6,16 +6,36 @@ export const useGetUser = () => {
   const ctx = useContext(AppContext) as AppContextType;
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/user")
-      .then(async (res) => {
-        return await res.json();
+    const token = localStorage.getItem("token");
+    if (token === null) {
+      fetch("http://localhost:8000/api/user")
+        .then(async (res) => {
+          return await res.json();
+        })
+        .then((data) => {
+          const dataOfUser = data.data as UserData;
+          ctx.setUserdata(dataOfUser);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      // fetch with bearer
+      fetch("http://localhost:8000/api/user", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .then((data) => {
-        const dataOfUser = data.data as UserData;
-        ctx.setUserdata(dataOfUser);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then(async (res) => {
+          return await res.json();
+        })
+        .then((data) => {
+          const dataOfUser = data.data as UserData;
+          ctx.setUserdata(dataOfUser);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
 };
