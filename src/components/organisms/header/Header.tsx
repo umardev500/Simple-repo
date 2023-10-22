@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "..";
 import { LoginBtn } from "@/components/atoms";
+import { useContext } from "react";
+import { AppContext, type AppContextType } from "@/context/AppContext";
 
 export const Header = () => {
+  const ctx = useContext(AppContext) as AppContextType;
+
   return (
     <nav className="header flex justify-center shadow-sm bg-white">
       <div className="flex items-center justify-between py-2 px-4 container">
@@ -18,10 +22,7 @@ export const Header = () => {
         </Link>
 
         {/* Rigt navigation */}
-        <div>
-          <LoginBtn />
-          {/* <Menu /> */}
-        </div>
+        <div>{ctx.userData?.login === "octocat" ? <LoginBtn /> : <Menu />}</div>
       </div>
     </nav>
   );

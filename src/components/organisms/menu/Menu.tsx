@@ -1,4 +1,5 @@
 import { Bars } from "@/components/atoms";
+import { useLogout } from "@/hooks/logout";
 import { Menu as HeadlessMenu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,6 +22,13 @@ const MenuBtn = () => {
 };
 
 export const Menu = () => {
+  const logout = useLogout();
+  const handleLogout = () => {
+    logout().catch((err) => {
+      console.log(err);
+    });
+  };
+
   return (
     <HeadlessMenu as={"div"} className={"relative"}>
       <HeadlessMenu.Button>
@@ -74,12 +82,12 @@ export const Menu = () => {
             </Link>
           </HeadlessMenu.Item>
           <HeadlessMenu.Item>
-            <Link
-              href={"/logout"}
-              className="px-4 py-[10px] font-medium text-gray-600 hover:text-gray-500 text-sm border-t"
+            <button
+              onClick={handleLogout}
+              className="text-left px-4 py-[10px] font-medium text-gray-600 hover:text-gray-500 text-sm border-t"
             >
               Log out
-            </Link>
+            </button>
           </HeadlessMenu.Item>
         </HeadlessMenu.Items>
       </Transition>
