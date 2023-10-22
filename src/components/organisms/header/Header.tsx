@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "..";
+import { Menu, SliderMenu } from "..";
 import { LoginBtn } from "@/components/atoms";
 import { useContext } from "react";
 import { AppContext, type AppContextType } from "@/context/AppContext";
@@ -23,7 +23,10 @@ export const Header = () => {
         </Link>
 
         {/* Rigt navigation */}
-        <div>{ctx.userData?.login === "octocat" ? <LoginBtn /> : <Menu />}</div>
+        <div className="hidden lg:block">
+          {ctx.userData?.login === "octocat" ? <LoginBtn /> : <Menu />}
+        </div>
+        <SliderMenu />
       </div>
     </nav>
   );
