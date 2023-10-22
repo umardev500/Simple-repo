@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "..";
+import { LoginBtn } from "@/components/atoms";
 
 export const Header = () => {
   return (
@@ -18,8 +19,8 @@ export const Header = () => {
 
         {/* Rigt navigation */}
         <div>
-          {/* <LoginBtn /> */}
-          <Menu />
+          <LoginBtn />
+          {/* <Menu /> */}
         </div>
       </div>
     </nav>
