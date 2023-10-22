@@ -3,7 +3,7 @@ import { Footer, Header, RepoList, Sidebar } from "@/components/organisms";
 import { useGetFollower, useGetRepo, useGetUser } from "@/hooks";
 import { useCheckLogin } from "@/hooks/checkLogin";
 
-export default function Home() {
+export default function Octocat() {
   useGetUser();
   useGetFollower();
   useGetRepo();
