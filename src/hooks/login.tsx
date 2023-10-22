@@ -1,7 +1,8 @@
 export const useLogin = () => {
+  const url = `${process.env.url}/login`;
   const doLogin = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/login", {
+      const response = await fetch(url, {
         method: "POST",
         headers: {
           "content-type": "application/json",

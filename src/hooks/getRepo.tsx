@@ -8,7 +8,8 @@ export const useGetRepo = () => {
 
   useEffect(() => {
     const config = getConfig();
-    fetch("http://localhost:8000/api/repo", config)
+    const url = `${process.env.url}/repo`;
+    fetch(url, config)
       .then(async (res) => {
         return await res.json();
       })

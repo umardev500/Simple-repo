@@ -1,9 +1,10 @@
 export const useLogout = () => {
   const doLogout = async () => {
     const token = localStorage.getItem("token");
+    const url = `${process.env.url}/logout`;
 
     try {
-      await fetch("http://localhost:8000/api/logout", {
+      await fetch(url, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

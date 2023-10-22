@@ -8,7 +8,8 @@ export const useGetUser = () => {
 
   useEffect(() => {
     const config = getConfig();
-    fetch("http://localhost:8000/api/user", config)
+    const url = `${process.env.url}/user`;
+    fetch(url, config)
       .then(async (res) => {
         return await res.json();
       })

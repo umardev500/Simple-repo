@@ -6,11 +6,9 @@ export const useGetToken = () => {
   const params = useSearchParams();
 
   useEffect(() => {
+    const url = `${process.env.url}/callback?code${params.get("code")}`;
     if (params.get("code") != null) {
-      const urlDest = `http://localhost:8000/api/callback?code=${params.get(
-        "code",
-      )}`;
-      fetch(urlDest)
+      fetch(url)
         .then(async (res) => {
           return await res.json();
         })
