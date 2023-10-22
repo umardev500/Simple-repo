@@ -62,6 +62,7 @@ export const Menu = () => {
               <div className="flex gap-3 items-center px-4">
                 <div className="w-10 h-10">
                   <Image
+                    className="rounded-full"
                     src={`${avatarUrl ?? "/assets/images/avatar.png"}`}
                     width={40}
                     height={40}
@@ -70,10 +71,10 @@ export const Menu = () => {
                 </div>
                 <div>
                   <h3 className="text-sm text-gray-600 font-semibold whitespace-nowrap">
-                    Rice Rice
+                    {ctx.userData?.name}
                   </h3>
                   <p className="whitespace-nowrap text-xs font-normal text-gray-500">
-                    rys@pixel8Labs.com
+                    {ctx.userData?.email}
                   </p>
                 </div>
               </div>
