@@ -32,9 +32,7 @@ export const Menu = () => {
 
   const logout = useLogout();
   const handleLogout = () => {
-    logout().catch((err) => {
-      console.log(err);
-    });
+    logout();
   };
 
   return (
