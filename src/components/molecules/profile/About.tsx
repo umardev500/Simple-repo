@@ -10,7 +10,8 @@ interface Props {
 
 export const About = ({ userData }: Props) => {
   const ctx = useContext(AppContext) as AppContextType;
-  const count = ctx.followers?.length.toLocaleString("ID");
+  const total = ctx.followers?.length ?? 0;
+  const count = total.toLocaleString("ID");
 
   return (
     <div className="mt-6">
