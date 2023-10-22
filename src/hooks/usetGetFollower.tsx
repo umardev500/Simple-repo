@@ -1,13 +1,13 @@
 import { AppContext, type AppContextType } from "@/context/AppContext";
+import { getConfig } from "@/helper/getConfig";
 import { type Follower } from "@/types";
 import { useContext, useEffect } from "react";
-import { useGetConfig } from "./getConfig";
 
 export const useGetFollower = () => {
   const ctx = useContext(AppContext) as AppContextType;
-  const config = useGetConfig();
 
   useEffect(() => {
+    const config = getConfig();
     if (ctx.userData !== undefined) {
       fetch(ctx.userData.followers_url, config)
         .then(async (res) => {
